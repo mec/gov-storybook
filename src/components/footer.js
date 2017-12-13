@@ -1,12 +1,12 @@
 import React from 'react';
 
 const Footer = ({ type, text }) => (
-  <footer class="group js-footer" id="footer" role="contentinfo">
-    <div class="footer-wrapper">
-      <div class="footer-meta">
-        <div class="footer-meta-inner">
-          <div class="open-government-licence">
-            <p class="logo">
+  <footer className="group js-footer" id="footer" role="contentinfo">
+    <div className="footer-wrapper">
+      <div className="footer-meta">
+        <div className="footer-meta-inner">
+          <div className="open-government-licence">
+            <p className="logo">
               <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">
                 Open Government Licence
               </a>
@@ -21,7 +21,7 @@ const Footer = ({ type, text }) => (
           </div>
         </div>
 
-        <div class="copyright">
+        <div className="copyright">
           <a href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright-and-re-use/crown-copyright/">
             © Crown copyright
           </a>
