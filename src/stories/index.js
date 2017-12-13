@@ -28,7 +28,10 @@ storiesOf('Buttons', module)
   .add(
     'Default button',
     withInfo(withInfoOptions)(() => (
-      <Button clicked={action('button-click')} color={'red'} />
+      <div>
+        <Button clicked={action('button-click')} />
+        <Button clicked={action('button-click')} disabled={'disabled'}/>
+      </div>
     ))
   );
 
