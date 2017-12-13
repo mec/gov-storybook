@@ -7,10 +7,11 @@ const Input = styled.input`
   background: none;
 `;
 
-const Button = ({ text }) => <Input type="submit" value={text}/>;
+const Button = ({ text, clicked }) => <Input type="submit" value={text} onClick={clicked}/>;
 
 Button.propTypes = {
-  text: PropTypes.string
+  text: PropTypes.string,
+  clicked: PropTypes.func
 };
 
 Button.defaultProps = {

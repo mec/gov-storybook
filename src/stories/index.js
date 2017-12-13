@@ -2,7 +2,7 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
+import { withNotes } from '@storybook/addon-notes';
 import { withInfo } from '@storybook/addon-info';
 
 import StartButton from '../components/start-button';
@@ -19,17 +19,20 @@ const withInfoOptions = {
 };
 
 storiesOf('Phase banner', module)
-  .add('in Alpha', () => <PhaseBanner phase="alpha" />)
+  .add('in Alpha', withNotes('A very simple component')(() => <PhaseBanner phase="alpha" />))
   .add('in Beta', () => <PhaseBanner phase="beta" />);
 
 storiesOf('Buttons', module)
-  .add('Start button', () => <StartButton text={'Start now'}  onClick={action('clicked')}/>)
-  .add('Button', () => <Button text={'Save and continue'}  onClick={action('clicked')}/>)
+  .add('Start button', () => <StartButton text={'Start now'} onClick={action('button-click')} />)
+  .add('Button', () => <Button text={'Save and continue'} onClick={action('button-click')} />)
   .add(
     'Default button',
-    withInfo(withInfoOptions)(() => <Button text={'Save and continue'} onClick={action('clicked')}/>));
+    withInfo(withInfoOptions)(() => (
+      <Button text={'Save and continue'} clicked={action('button-click')} />
+    ))
+  );
 
-storiesOf('Data').add('Visualisation', () => (
+storiesOf('Data', module).add('Visualisation', () => (
   <Data value={'24'} text={'Ministerial departments'} />
 ));
 
