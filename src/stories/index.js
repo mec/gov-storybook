@@ -28,7 +28,7 @@ storiesOf('Buttons', module)
   .add(
     'Default button',
     withInfo(withInfoOptions)(() => (
-      <Button text={'Save and continue'} clicked={action('button-click')} />
+      <Button clicked={action('button-click')} color={'red'} />
     ))
   );
 
