@@ -9,6 +9,7 @@ const Input = styled.input`
   position: relative;
   padding: 0.526315em 0.789473em 0.263157em;
   border: none;
+  border-radius: 0;
   outline: 1px solid transparent;
   outline-offset: -1px;
   font-size: 1em;
@@ -37,19 +38,13 @@ const Input = styled.input`
     top: -10%;
     height: 120%;
   }
+  &:disabled,
   &.disabled,
   &[disabled="disabled"],
   &[disabled] {
     background-color: ${props => props.theme.background};
     opacity: 0.5;
-    &:hover {
-      cursor: default;
-      background-color: ${props => props.theme.background};
-    }
-    &:active {
-      top: 0;
-      box-shadow: 0 2px 0 ${props => props.theme.darkerBackground};
-    }
+    cursor: default;
   }
 `;
 

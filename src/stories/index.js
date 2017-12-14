@@ -33,19 +33,21 @@ storiesOf('Phase banner', module)
   .add('in Beta', () => <PhaseBanner phase="beta" />);
 
 storiesOf('Buttons', module)
-  .add('Start button', () => <StartButton text={'Start now'} onClick={action('button-click')} />)
-  .add('Button', () => <Button text={'Save and continue'} onClick={action('button-click')} />)
-  .add(
-    'Default button',
-    withInfo(withInfoOptions)(() => (
-      <div>
-        <ThemeProvider theme={theme}>
-          <Button text={'Save and continue'} clicked={action('button-click')} />
+  .add('Start button', 
+    withInfo(withInfoOptions)(() => ( 
+      <ThemeProvider theme={theme}>
+        <StartButton text={'Start now'} clicked={action('button-click')} />
         </ThemeProvider>
-        <Button text="Save and continue" clicked={action('button-click')} disabled={'disabled'}/>
-      </div>
-    ))
-  );
+        )))
+  .add('Default button',
+    withInfo(withInfoOptions)(() => (
+      <ThemeProvider theme={theme}>
+        <div>
+          <Button text={'Save and continue'} clicked={action('button-click')} />
+          <Button text="Save and continue" clicked={action('button-click')} disabled={'disabled'}/> 
+        </div>
+      </ThemeProvider>
+    )));
 
 storiesOf('Data', module).add('Visualisation', () => (
   <Data value={'24'} text={'Ministerial departments'} />
