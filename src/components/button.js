@@ -1,40 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-
-const lightenDarkenColor = function (col, amt) {
-	var usePound = false;
-	if (col[0] == "#") {
-		col = col.slice(1);
-		usePound = true;
-	}
-	var num = parseInt(col, 16);
-	var r = (num >> 16) + amt;
-	if (r > 255) {
-		r = 255;
-	} else if (r < 0) {
-		r = 0;
-	}
-	var b = ((num >> 8) & 0x00FF) + amt;
-	if (b > 255) {
-		b = 255;
-	} else if (b < 0) {
-		b = 0;
-	}
-	var g = (num & 0x0000FF) + amt;
-	if (g > 255) {
-		g = 255;
-	} else if (g < 0) {
-		g = 0;
-	}
-  //return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16);
-  return (usePound?"#":"") + String("000000" + (g | (b << 8) | (r << 16)).toString(16)).slice(-6);
-}
+import { darken, readableColor } from 'polished'
 
 const Input = styled.input`
   font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   background-color: ${props => props.primary};
-  color: white;
+  color: ${props => readableColor(props.primary)};
   position: relative;
   padding: 0.526315em 0.789473em 0.263157em;
   border: none;
@@ -44,7 +16,7 @@ const Input = styled.input`
   line-height: 1.25;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 2px 0 ${props => lightenDarkenColor(props.primary, -15)};
+  box-shadow: 0 2px 0 ${props => darken(0.15, props.primary)};
   &:before {
     content: '';
     height: 110%;
@@ -56,7 +28,7 @@ const Input = styled.input`
     left: 0;
   }
   &:focus {
-    background-color: ${props => lightenDarkenColor(props.primary, -5)};
+    background-color: ${props => darken(0.05, props.primary)};
   }
   &:active {
     top: 2px;
@@ -76,7 +48,7 @@ const Input = styled.input`
     }
     &:active {
       top: 0;
-      box-shadow: 0 2px 0 ${props => lightenDarkenColor(props.primary, -5)};
+      box-shadow: 0 2px 0 ${props => darken(0.05, props.primary)};
     }
   }
   &:hover[disabled="disabled"]  {
@@ -85,7 +57,7 @@ const Input = styled.input`
   }
   &:hover[disabled="disabled"]  {
     top: 0;
-    box-shadow: 0 2px 0 ${props => lightenDarkenColor(props.primary, -5)};
+    box-shadow: 0 2px 0 ${props => darken(0.05, props.primary)};
   }
 `;
 
