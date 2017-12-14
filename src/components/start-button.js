@@ -6,6 +6,7 @@ import iconPointer from '../images/icon-pointer.png';
 
 const Button = styled.button`
   font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+  font-size: 24px;
   line-height: 1.25;
   font-weight: 700;
   background-color: ${props => props.theme.background};
@@ -16,10 +17,10 @@ const Button = styled.button`
   border-radius: 0;
   outline: 1px solid transparent;
   outline-offset: -1px;
-  font-size: 1em;
+ 
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 2px 0 ${props => props.theme.darkerBackground};
+  box-shadow: 0 2px 0 ${props => props.theme.darkerShadow};
   background-image: url(${iconPointer});
   background-repeat: no-repeat;
   background-position: 100% 50%;
@@ -40,7 +41,7 @@ const Button = styled.button`
   }
   &:active {
     top: 2px;
-    box-shadow: 0 0 0 ${props => props.theme.darkerBackground};
+    box-shadow: 0 0 0 ${props => props.theme.darkerShadow};
   }
   &:active:before {
     top: -10%;

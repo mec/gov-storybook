@@ -20,6 +20,7 @@ const colors = {
 const theme = {
   background: colors.primaryGreen,
   darkerBackground: darken(0.05, colors.primaryGreen),
+  darkerShadow: darken(0.15, colors.primaryGreen),
   textColor: readableColor(colors.primaryGreen),
   focusColor: '#ffbf47'
 };
