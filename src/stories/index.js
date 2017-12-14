@@ -20,12 +20,16 @@ const colors = {
 const theme = {
   background: colors.primaryGreen,
   darkerBackground: darken(0.05, colors.primaryGreen),
-  textColor: readableColor(colors.primaryGreen)
+  textColor: readableColor(colors.primaryGreen),
+  focusColor: '#ffbf47'
 };
 
 const withInfoOptions = {
   inline: true,
-  source: true
+  source: true,
+  propTablesExclude: [
+    ThemeProvider
+  ]
 };
 
 storiesOf('Phase banner', module)

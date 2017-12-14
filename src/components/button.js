@@ -46,6 +46,9 @@ const Input = styled.input`
     opacity: 0.5;
     cursor: default;
   }
+  &:focus {
+  outline: 3px solid ${props => props.theme.focusColor};
+}
 `;
 
 const Button = ({ text, clicked, primary, disabled }) => <Input type="submit" value={text} onClick={clicked} primary={primary} disabled={ disabled }/>;
