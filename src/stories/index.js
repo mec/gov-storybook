@@ -4,6 +4,8 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withNotes } from '@storybook/addon-notes';
 import { withInfo } from '@storybook/addon-info';
+import { ThemeProvider } from 'styled-components';
+import { darken, readableColor } from 'polished'
 
 import StartButton from '../components/start-button';
 import Button from '../components/button';
@@ -12,6 +14,14 @@ import Data from '../components/data';
 import PhaseBanner from '../components/phase-banner';
 import Text from '../components/forms/text';
 import Area from '../components/forms/area';
+const colors = {
+  primaryGreen: '#00823b'
+}
+const theme = {
+  background: colors.primaryGreen,
+  darkerBackground: darken(0.05, colors.primaryGreen),
+  textColor: readableColor(colors.primaryGreen)
+};
 
 const withInfoOptions = {
   inline: true,
@@ -29,7 +39,9 @@ storiesOf('Buttons', module)
     'Default button',
     withInfo(withInfoOptions)(() => (
       <div>
-        <Button text={'Save and continue'} clicked={action('button-click')} />
+        <ThemeProvider theme={theme}>
+          <Button text={'Save and continue'} clicked={action('button-click')} />
+        </ThemeProvider>
         <Button text="Save and continue" clicked={action('button-click')} disabled={'disabled'}/>
       </div>
     ))

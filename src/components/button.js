@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { darken, readableColor } from 'polished'
 
 const Input = styled.input`
   font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
-  background-color: ${props => props.primary};
-  color: ${props => readableColor(props.primary)};
+  background-color: ${props => props.theme.background};
+  color: ${props => props.theme.textColor};
   position: relative;
   padding: 0.526315em 0.789473em 0.263157em;
   border: none;
@@ -16,7 +15,7 @@ const Input = styled.input`
   line-height: 1.25;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 2px 0 ${props => darken(0.15, props.primary)};
+  box-shadow: 0 2px 0 ${props => props.theme.darkerBackground};
   &:before {
     content: '';
     height: 110%;
@@ -28,11 +27,11 @@ const Input = styled.input`
     left: 0;
   }
   &:focus {
-    background-color: ${props => darken(0.05, props.primary)};
+    background-color: ${props => props.theme.darkerBackground};
   }
   &:active {
     top: 2px;
-    box-shadow: 0 0 0 ${props => props.primary};
+    box-shadow: 0 0 0 ${props => props.theme.darkerBackground};
   }
   &:active:before {
     top: -10%;
@@ -41,23 +40,16 @@ const Input = styled.input`
   &.disabled,
   &[disabled="disabled"],
   &[disabled] {
+    background-color: ${props => props.theme.background};
     opacity: 0.5;
     &:hover {
       cursor: default;
-      background-color: ${props => props.primary};
+      background-color: ${props => props.theme.background};
     }
     &:active {
       top: 0;
-      box-shadow: 0 2px 0 ${props => darken(0.05, props.primary)};
+      box-shadow: 0 2px 0 ${props => props.theme.darkerBackground};
     }
-  }
-  &:hover[disabled="disabled"]  {
-    cursor: default;
-    background-color: ${props => props.primary};
-  }
-  &:hover[disabled="disabled"]  {
-    top: 0;
-    box-shadow: 0 2px 0 ${props => darken(0.05, props.primary)};
   }
 `;
 
@@ -71,13 +63,16 @@ Button.propTypes = {
   /** Is the button disabled, pass in 'disabled' */
   disabled: PropTypes.string,
   /** The function called when the button is clicked. */
-  clicked: PropTypes.func
+  clicked: PropTypes.func,
 };
 
 Button.defaultProps = {
   text: 'Submit',
   primary: '#00823b',
-  disabled: ''
+  disabled: '',
+  theme: {
+    primary: '#00823b'
+  }
 };
 
 export default Button;
