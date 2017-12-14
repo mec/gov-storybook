@@ -14,14 +14,10 @@ import Data from '../components/data';
 import PhaseBanner from '../components/phase-banner';
 import Text from '../components/forms/text';
 import Area from '../components/forms/area';
-const colors = {
-  primaryGreen: '#00823b'
-}
+
 const theme = {
-  background: colors.primaryGreen,
-  darkerBackground: darken(0.05, colors.primaryGreen),
-  darkerShadow: darken(0.15, colors.primaryGreen),
-  textColor: readableColor(colors.primaryGreen),
+  background: '#00823b',
+  textColor: '#000000',
   focusColor: '#ffbf47'
 };
 

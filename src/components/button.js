@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { darken, readableColor } from 'polished';
 
 const Input = styled.input`
   font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
   background-color: ${props => props.theme.background};
-  color: ${props => props.theme.textColor};
+  color: ${props => readableColor(props.theme.background)};
   position: relative;
   padding: 0.526315em 0.789473em 0.263157em;
   border: none;
@@ -16,7 +17,7 @@ const Input = styled.input`
   line-height: 1.25;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 2px 0 ${props => props.theme.darkerBackground};
+  box-shadow: 0 2px 0 ${props => darken(0.15, props.theme.background)};
   &:before {
     content: '';
     height: 110%;
@@ -28,11 +29,11 @@ const Input = styled.input`
     left: 0;
   }
   &:focus {
-    background-color: ${props => props.theme.darkerBackground};
+    background-color: ${props => darken(0.05, props.theme.background)};
   }
   &:active {
     top: 2px;
-    box-shadow: 0 0 0 ${props => props.theme.darkerBackground};
+    box-shadow: 0 0 0 ${props => darken(0.15, props.theme.background)};
   }
   &:active:before {
     top: -10%;
