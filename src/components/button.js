@@ -46,6 +46,10 @@ const Input = styled.input`
     background-color: ${props => props.theme.background};
     opacity: 0.5;
     cursor: default;
+    &:active {
+      top: 0;
+      box-shadow: 0 2px 0 ${props => darken(0.15, props.theme.background)};
+    }
   }
   &:focus {
   outline: 3px solid ${props => props.theme.focusColor};

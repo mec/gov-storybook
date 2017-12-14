@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import iconPointer from '../images/icon-pointer.png';
+import { darken, readableColor } from 'polished';
 
 const Button = styled.button`
   font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
@@ -10,7 +11,7 @@ const Button = styled.button`
   line-height: 1.25;
   font-weight: 700;
   background-color: ${props => props.theme.background};
-  color: ${props => props.theme.textColor};
+  color: ${props => readableColor(props.theme.background)};
   position: relative;
   padding: 0.526315em 0.789473em 0.263157em;
   border: none;
@@ -20,7 +21,7 @@ const Button = styled.button`
  
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 2px 0 ${props => props.theme.darkerShadow};
+  box-shadow: 0 2px 0 ${props => darken(0.15, props.theme.background)};
   background-image: url(${iconPointer});
   background-repeat: no-repeat;
   background-position: 100% 50%;
@@ -37,11 +38,11 @@ const Button = styled.button`
     left: 0;
   }
   &:focus {
-    background-color: ${props => props.theme.darkerBackground};
+    background-color: ${props => darken(0.05, props.theme.background)};
   }
   &:active {
     top: 2px;
-    box-shadow: 0 0 0 ${props => props.theme.darkerShadow};
+    box-shadow: 0 0 0 ${props => darken(0.15, props.theme.background)};
   }
   &:active:before {
     top: -10%;

@@ -38,8 +38,8 @@ storiesOf('Buttons', module)
     withInfo(withInfoOptions)(() => ( 
       <ThemeProvider theme={theme}>
         <StartButton text={'Start now'} clicked={action('button-click')} />
-        </ThemeProvider>
-        )))
+      </ThemeProvider>
+      )))
   .add('Default button',
     withInfo(withInfoOptions)(() => (
       <ThemeProvider theme={theme}>
